@@ -34,11 +34,11 @@ function each(array, callback) {
   for(let i = 0; i < array.length; i++) {
     callback(array[i], i);
   }
-};
+}
 
 // ここでeach関数の挙動を確かめる
 const array1 = [1, 2, 3, 4];
-const returnedValueOfEach = each(array1, (value, index)=> {
+const returnedValueOfEach = each(array1, (value, index) => {
   console.log('each関数のコールバック関数内　index：' + index + '値：' + value);
 });
 
@@ -74,16 +74,16 @@ console.log('each関数の戻り値：', returnedValueOfEach);
 // ここでmap関数を実装する
 function map(array, callback) {
   const newArray = [];
-  each(array, (value, index)=> {
+  each(array, (value, index) => {
     const newValue = callback(value, index);
     newArray.push(newValue); 
   });
   return newArray;
-};
+}
 
 // ここでmap関数の挙動を確認する
 const array2 = [1, 2, 3];
-const returnedValueOfMap = map(array2, (value, index)=> {
+const returnedValueOfMap = map(array2, (value, index) => {
   console.log('map関数のコールバック関数内　index：' + index + '値：' + value);
   return value * 2;
 });
@@ -124,17 +124,17 @@ console.log('map関数の戻り値', returnedValueOfMap);
 // ここでfilter関数を作る
 function filter(array, callback) {
   const filteredArray = [];
-  each(array, (value, index)=> {
+  each(array, (value, index) => {
     if(callback(value, index)) {
       filteredArray.push(value);
     }
   });
   return filteredArray;
-};
+}
 
 // ここでfilter関数の挙動を確認する
 const array3 = [1, 2, 3, 4, 5];
-const returnedValueOfFilter = filter(array3, (value, index)=> {
+const returnedValueOfFilter = filter(array3, (value, index) => {
   console.log('filter関数のコールバック関数内　index：' + index + '値：' + value);
   return value % 2 === 0;
 });
